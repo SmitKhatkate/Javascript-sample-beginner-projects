@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="/{PUBLIC_URL}/style/style.css">
+        <script src="/{PUBLIC_URL}/js/index.js"></script>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="demo.css">
+<body>
+  <div class="iphone-x">
+      <i>Speaker</i>
+      <b>Camera</b>
+      <div class="header">
+          <h2>Messages</h2>
+      </div>
+      <div class="searchbar">
+        <label for="filter-box" class="sr-only">Search for a user:</label>
+        <input type="text" id="filter-box" aria-label="Search for a user" role="searchbox" autocomplete="off">
+
+      </div>
+      <div class="userlist">
+        <ul id="user-list"></ul>
+        </div>
+  </div>
+  
+</body>
+<script>
+  const apiUrl = 'https://randomuser.me/api/?results=20&inc=name,picture,id,cell&nat=in';
+const filterBox = document.querySelector('#filter-box');
+const noResultsMessage = document.createElement('li');
+noResultsMessage.textContent = 'No results found';
+noResultsMessage.id = 'no-results';
+noResultsMessage.style.display = 'none';
+noResultsMessage.setAttribute("aria-live", "polite");
+
+fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => {
+      const userList = document.querySelector('#user-list');
+      userList.appendChild(noResultsMessage);
+
+      // Generate the user list
+      data.results.forEach(user => {
+          const listItem = document.createElement('li');
+          listItem.innerHTML = `
+              <img src="${user.picture.medium}" alt="${user.name.first} ${user.name.last}">
+              <div class="contact-details">
+                  <p class="name">${user.name.first} ${user.name.last}</p>
+                  <p id="cell"> ${user.cell}</p>
+              </div>
+          `;
+          listItem.dataset.name = `${user.name.first.toLowerCase()} ${user.name.last.toLowerCase()}`;
+          userList.appendChild(listItem);
+      });
+
+      // Setup the filter function
+      filterBox.addEventListener('input', () => {
+          const filter = filterBox.value.toLowerCase();
+          let resultFound = false;
+          for(const item of userList.children) {
+              if(item.dataset.name && item.dataset.name.includes(filter)) {
+                  item.style.display = '';
+                  resultFound = true;
+              } else if(item.id !== 'no-results') {
+                  item.style.display = 'none';
+              }
+          }
+          noResultsMessage.style.display = !resultFound ? '' : 'none';
+      });
+  })
+  .catch(error => console.error('Error fetching user data:', error));
+</script>
+</html>

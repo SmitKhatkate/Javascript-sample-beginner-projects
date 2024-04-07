@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample User List</title>
+    <style>
+        /* Basic styling for the list */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sample User List</h1>
+    <ul id="user-list"></ul>
+
+    <script>
+        const apiUrl = 'https://randomuser.me/api/?results=20&inc=name,picture,id,cell&nat=in';
+
+        // Fetch user data
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const userList = document.getElementById('user-list');
+
+                // Loop through each user
+                data.results.forEach(user => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <img src="${user.picture.medium}" alt="${user.name.first} ${user.name.last}">
+                        <div class="contact-details">
+                            <p class="name">${user.name.first} ${user.name.last}</p>
+                            <p id="cell">${user.cell}</p>
+                        </div>
+                        <hr>
+                    `;
+                    userList.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching user data:', error);
+            });    </script>
+</body>
+</html>

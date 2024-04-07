@@ -1,0 +1,73 @@
+.photos{
+    display:none;
+    border: 2px solid red;
+    box-shadow: 1px 1px  20px blue;
+    border-radius: 10px;
+    
+}
+img{
+    width: 500px;
+    border-radius: 10px;
+}
+body{
+    background-color: black;
+}
+
+.container{
+    border: 2px solid blue;
+    background-color: black;
+    height: 70vh;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    margin-top: 70px;
+    border-radius: 10px;
+}
+#prev{
+    position: absolute;
+    top: 43%;
+    left: 0;
+    color: white;
+    cursor: pointer;
+    padding: 16px;
+    font-size: 1rem;
+    transition: 0.6s ease;
+    border-radius: 10px;
+    user-select: none;
+
+}
+#next{
+    position: absolute;
+    top: 43%;
+    right: 0;
+    color: white;
+    cursor: pointer;
+    padding: 16px;
+    font-size: 1rem;
+    transition: 0.6s ease;
+    border-radius: 10px;
+    user-select: none;
+
+}
+#prev:hover,#next:hover{
+    background-color: rgb(87, 80, 80);
+}
+.dot{
+    height: 15px;
+    width: 15px;
+    background-color: grey;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 10px 2px;
+    transition: background-color 0.6s ease;
+}
+.active{
+    background-color: rgb(52, 21, 167);
+}
+.fade{
+    animation: fade 1.5s;
+}

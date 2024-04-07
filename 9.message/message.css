@@ -1,0 +1,64 @@
+body{
+    padding: 0%;
+    margin: 0;
+    background-color: rgb(45, 54, 71);
+}
+.upper{
+    background-color: rgb(45, 54, 71);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.second{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.messagebox{
+    width: 500px;
+    border-radius: 10px;
+    text-align: center;
+}
+#hr{
+    border-bottom: 2px solid blue;
+    width: 90%;
+    text-align: center;
+    margin-left: 30px;
+}
+.messagebox{
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(155,245,218,1) 0%, rgba(77,47,83,1) 100%);
+}
+.material-icons{
+    padding-right: 20px;
+    border: 2px solid blue;
+    border-radius: 20px;
+    padding-left: 20px;
+    background-color: white;
+    padding-top: 5px;
+}
+#input-message{
+    margin-left: 20px;
+    width: 50%;
+    border-radius: 20px;
+    padding-top: 28px;
+    text-align: center;
+    border: 2px solid rgb(0, 2, 128);
+}
+input:focus{
+    outline: 2px solid greenyellow;
+}
+h2{
+    color: white;
+    text-shadow: 4px 4px 15px blue;
+}
+.btn btn-light{
+    color: white;
+    background-color: blue;
+    border-radius: 10px;
+    width: 80px;
+    font-size: 20px;
+    border: 3px soild yellow;
+}

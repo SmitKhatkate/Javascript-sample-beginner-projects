@@ -1,0 +1,17 @@
+div{
+    min-height: 200px;
+    min-width: 700px;
+    background-color: rgb(80, 82, 82);
+    margin: 100px;
+    margin-left: 250px;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+textarea{
+    color: white;
+    background-color: rgb(53, 66, 66);
+    font-size: 20px;
+}

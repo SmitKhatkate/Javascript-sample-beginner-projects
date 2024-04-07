@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+</head>
+<body>
+    <div class="container" style="border: 1px solid red; height:100vh;display:flex;justify-content:center;align-items:center;background-color:	#FF003F;">
+<div class="Content" style="border: 1px solid #fec9c9;;width:300px;text-align:center;background-color:rgb(73, 57, 78);color:white;
+border-radius: 10px;">
+    <h1>counter</h1>
+    <h2 id="numberdisplay" style="color: white;">0</h2>
+    <div class="btn" style="padding-bottom: 20px;">
+    <button onclick="inc(1)">increase</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onclick="dec(1)">decrease</button>
+</div>
+</div>
+</div>
+<script>
+    let count=0;
+    function inc(num){
+        count += num;
+        document.getElementById("numberdisplay").innerHTML =count;
+    }
+    function dec(num){
+        count -= num;
+        document.getElementById("numberdisplay").innerHTML =count;
+    }
+</script>
+</body>
+</html>

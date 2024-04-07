@@ -1,0 +1,34 @@
+body{
+background-color: #1f314f;
+color: black;
+}
+.container{
+    
+    height: 100vh;
+    width: 95%;
+    display: flex;
+    
+}
+.quates{
+    border: 10px solid rgb(10, 12, 10);
+    width: 900px;
+    height: 450px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: cornsilk;
+    box-shadow: 5px 5px 3px rgb(162, 0, 255);
+}
+#quate{
+    text-shadow: 3px 3px 10px blue;
+    color: rgb(8, 6, 6);
+}
+#author{
+    text-shadow: 3px 3px 10px rgb(11, 97, 47);
+    color: rgb(8, 6, 6);
+}
+button{
+    margin-top: -200px;
+}
